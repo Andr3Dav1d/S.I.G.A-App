@@ -93,6 +93,7 @@ export function createApp({ db, adminToken = '', environment = 'development', co
     if (req.method === 'OPTIONS') return res.sendStatus(204);
     next();
   });
+  // 4 MB acomodam a expansão Base64 (cerca de 33%) da foto de até 2 MiB.
   app.use('/api/denuncias', express.json({ limit: '4mb' }));
   app.use(express.json({ limit: '16kb' }));
 

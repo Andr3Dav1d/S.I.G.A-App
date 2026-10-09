@@ -1,6 +1,6 @@
 # Denúncias anônimas — backend do S.I.G.A (MVP)
 
-`POST /api/denuncias` aceita JSON `{ "categoria": "entulho", "descricao": "...", "latitude": -1.45, "longitude": -48.49, "foto_base64": "data:image/jpeg;base64,..." }`. Foto JPG/PNG <= 2 MiB. A API retorna **201** e `{ "data": { "protocolo": "...", "status": "pendente" } }` somente após gravar o registro.
+`POST /api/denuncias` aceita JSON `{ "categoria": "entulho", "descricao": "...", "latitude": -1.45, "longitude": -48.49, "foto_base64": "data:image/jpeg;base64,..." }`. Foto JPG/PNG <= 2 MiB. Como Base64 aumenta o tamanho em cerca de 33%, o parser JSON da rota aceita até 4 MB. A API retorna **201** e `{ "data": { "protocolo": "...", "status": "pendente" } }` somente após gravar o registro.
 
 `GET /api/denuncias/protocolo/:codigo` permite ao detentor do protocolo consultar status (código aleatório, 48 dígitos hexadecimais).
 
